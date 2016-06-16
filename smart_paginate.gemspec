@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Simple, smart and clean pagination extension"
   spec.description   = "Simple, smart and clean pagination extension for Active Record and plain Ruby Arrays."
-  spec.homepage      = "https://github.com/ppostma"
+  spec.homepage      = "https://github.com/ppostma/smart_paginate"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
