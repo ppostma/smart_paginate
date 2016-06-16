@@ -1,0 +1,29 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
