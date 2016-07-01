@@ -31,7 +31,7 @@ Or install it yourself as:
 To enable pagination in an Active Record model, include the `SmartPaginate` concern in your class:
 
 ```ruby
-class User
+class User < ActiveRecord::Base
   include SmartPaginate
 end
 ```
