@@ -42,7 +42,7 @@ module SmartPaginate
       # Override #load: fetch/slice records and determine number of records
       def load
         super
-        slice_records!(@records)
+        slice_records!
 
         self
       end
@@ -86,11 +86,11 @@ module SmartPaginate
       private
 
       # remember total number of fetched records and slice records to per_page
-      def slice_records!(records)
-        @number_of_records ||= records.length
+      def slice_records!
+        @number_of_records ||= @records.length
 
         if @number_of_records > per_page
-          records.slice!(per_page)
+          @records = @records.slice(0, per_page)
         end
       end
     end
