@@ -26,7 +26,7 @@ module SmartPaginate
       def count(*args)
         if limit_value && per_page && limit_value > per_page
           rel = except(:limit).limit(per_page)
-          rel.count
+          rel.count(*args)
         else
           super(*args)
         end
@@ -78,7 +78,7 @@ module SmartPaginate
             offset_value + @number_of_records
           else
             rel = except(:limit, :offset)
-            rel.count
+            rel.count(:all)
           end
         end
       end
