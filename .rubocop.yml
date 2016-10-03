@@ -2,6 +2,9 @@ AllCops:
   TargetRubyVersion: 2.2
   DisplayCopNames: true
   DisplayStyleGuide: true
+  Exclude:
+    - 'gemfiles/vendor/**/*'
+    - 'lib/smart_paginate/version.rb'
 
 Metrics/LineLength:
   Enabled: false
@@ -17,9 +20,6 @@ Style/GuardClause:
   Enabled: false
 
 Style/IfUnlessModifier:
-  Enabled: false
-
-Style/MutableConstant:
   Enabled: false
 
 Style/RedundantSelf:

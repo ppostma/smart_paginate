@@ -1,6 +1,11 @@
-sudo: false
 language: ruby
+sudo: false
+cache: bundler
 rvm:
   - 2.2.5
   - 2.3.1
-before_install: gem install bundler -v 1.12.5
+gemfile:
+  - gemfiles/Gemfile.active_record-4.0
+  - gemfiles/Gemfile.active_record-4.1
+  - gemfiles/Gemfile.active_record-4.2
+  - gemfiles/Gemfile.active_record-5.0
