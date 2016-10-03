@@ -3,7 +3,7 @@ require "active_support/concern"
 require "active_record"
 
 module SmartPaginate
-  module ActiveRecord
+  module ActiveRecordExtension
     extend ActiveSupport::Concern
 
     module ClassMethods

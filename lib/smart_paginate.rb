@@ -1,4 +1,4 @@
-require "smart_paginate/active_record"
+require "smart_paginate/active_record_extension"
 require "smart_paginate/paginating_array"
 require "smart_paginate/version"
 require "active_support/concern"
@@ -6,5 +6,5 @@ require "active_support/concern"
 module SmartPaginate
   extend ActiveSupport::Concern
 
-  include SmartPaginate::ActiveRecord
+  include SmartPaginate::ActiveRecordExtension
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SmartPaginate::ActiveRecord do
+describe SmartPaginate::ActiveRecordExtension do
   class User < ActiveRecord::Base
     include SmartPaginate
   end
