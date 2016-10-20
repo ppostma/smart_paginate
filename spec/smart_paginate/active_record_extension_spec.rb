@@ -23,7 +23,7 @@ describe SmartPaginate::ActiveRecordExtension do
     end
   end
 
-  describe '#pagination' do
+  describe '#paginate' do
     it 'raises an exception when page option is absent' do
       expect { User.paginate(per_page: 1) }.to raise_error(KeyError)
     end
