@@ -13,6 +13,9 @@ Style/BlockComments:
   Exclude:
     - 'spec/**/*.rb'
 
+Style/ConditionalAssignment:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 

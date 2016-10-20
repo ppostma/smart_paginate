@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SmartPaginate::PaginatingArray do
   subject { SmartPaginate::PaginatingArray.new(%w(1 2 3 4 5 6 7 8 9 10)) }
 
-  describe '#pagination' do
+  describe '#paginate' do
     it 'raises an exception when page option is absent' do
       expect { subject.paginate(per_page: 1) }.to raise_error(KeyError)
     end
@@ -26,13 +26,13 @@ describe SmartPaginate::PaginatingArray do
     end
 
     it 'returns the last page when asked for' do
-      users = subject.paginate(per_page: 1, page: 5)
+      users = subject.paginate(per_page: 1, page: 10)
       expect(users.length).to eq(1)
-      expect(users.first).to eq("5")
+      expect(users.first).to eq("10")
     end
 
     it 'returns nil after the last page' do
-      users = subject.paginate(per_page: 1, page: 11)
+      users = subject.paginate(per_page: 1, page: 20)
       expect(users.length).to eq(0)
       expect(users.first).to be nil
     end
@@ -70,6 +70,11 @@ describe SmartPaginate::PaginatingArray do
 
     it 'returns the total number of entries on the last page' do
       users = subject.paginate(per_page: 1, page: 10)
+      expect(users.total_entries).to eq(10)
+    end
+
+    it 'returns the total number of entries after the last page' do
+      users = subject.paginate(per_page: 1, page: 20)
       expect(users.total_entries).to eq(10)
     end
   end
