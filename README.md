@@ -74,8 +74,6 @@ module PaginateHelper
   def paginate(collection, options = {})
     content_tag(:div, class: "pagination") do
       if collection.present?
-        options = options.merge(params)
-
         concat link_to("Previous", url_for(options.merge(per_page: collection.per_page, page: collection.previous_page)), class: "previous_page") if collection.previous_page?
         concat link_to("Next", url_for(options.merge(per_page: collection.per_page, page: collection.next_page)), class: "next_page") if collection.next_page?
       end
@@ -84,6 +82,13 @@ module PaginateHelper
 end
 ```
 
+Which you can then use in the view like this:
+
+```ruby
+<%= paginate(@objects, params.permit) %>
+```
+
+Make sure you whitelist the allowed parameters!
 
 ## Contributing
 
