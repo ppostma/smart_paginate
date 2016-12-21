@@ -1,6 +1,8 @@
 # SmartPaginate
 
+[![Gem Version](https://badge.fury.io/rb/smart_paginate.svg)](https://badge.fury.io/rb/smart_paginate)
 [![Build Status](https://travis-ci.org/ppostma/smart_paginate.svg?branch=master)](https://travis-ci.org/ppostma/smart_paginate)
+[![Code Climate](https://codeclimate.com/github/ppostma/smart_paginate/badges/gpa.svg)](https://codeclimate.com/github/ppostma/smart_paginate)
 
 Simple, smart and clean pagination extension for Active Record and plain Ruby Arrays:
 
