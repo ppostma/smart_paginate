@@ -14,6 +14,6 @@ gemfile:
 matrix:
   exclude:
     - rvm: 2.4.1
-      gemfile:
-        - gemfiles/Gemfile.active_record-4.0
-        - gemfiles/Gemfile.active_record-4.1
+      gemfile: gemfiles/Gemfile.active_record-4.0
+    - rvm: 2.4.1
+      gemfile: gemfiles/Gemfile.active_record-4.1
