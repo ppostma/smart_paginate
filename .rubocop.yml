@@ -6,6 +6,10 @@ AllCops:
     - 'gemfiles/vendor/**/*'
     - 'lib/smart_paginate/version.rb'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
 Metrics/LineLength:
   Enabled: false
 
@@ -29,4 +33,7 @@ Style/RedundantSelf:
   Enabled: false
 
 Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
   Enabled: false

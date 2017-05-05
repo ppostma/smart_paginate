@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SmartPaginate::PaginatingArray do
-  subject { SmartPaginate::PaginatingArray.new(%w(1 2 3 4 5 6 7 8 9 10)) }
+  subject { SmartPaginate::PaginatingArray.new(%w[1 2 3 4 5 6 7 8 9 10]) }
 
   describe '#paginate' do
     it 'raises an exception when page option is absent' do
