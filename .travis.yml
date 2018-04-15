@@ -11,6 +11,7 @@ gemfile:
   - gemfiles/Gemfile.active_record-4.2
   - gemfiles/Gemfile.active_record-5.0
   - gemfiles/Gemfile.active_record-5.1
+  - gemfiles/Gemfile.active_record-5.2
 matrix:
   exclude:
     - rvm: 2.4.1
