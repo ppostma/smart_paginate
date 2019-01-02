@@ -3,6 +3,8 @@ require 'spec_helper'
 describe SmartPaginate::ActiveRecordExtension do
   class User < ActiveRecord::Base
     include SmartPaginate
+
+    scope :nothing, -> { where("1 = 0") }
   end
 
   before(:all) do
@@ -93,6 +95,11 @@ describe SmartPaginate::ActiveRecordExtension do
   end
 
   describe '#total_entries' do
+    it 'returns zero when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
+      expect(users.total_entries).to eq(0)
+    end
+
     it 'returns the total number of entries on the first page' do
       users = User.paginate(per_page: 1, page: 1)
       expect(users.total_entries).to eq(10)
@@ -112,9 +119,19 @@ describe SmartPaginate::ActiveRecordExtension do
       users = User.paginate(per_page: 1, page: 11)
       expect(users.total_entries).to eq(10)
     end
+
+    it 'returns the total number of entries far after the last page' do
+      users = User.paginate(per_page: 1, page: 20)
+      expect(users.total_entries).to eq(10)
+    end
   end
 
   describe '#total_pages' do
+    it 'returns zero when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
+      expect(users.total_pages).to eq(0)
+    end
+
     it 'returns the total number of pages when per_page is 1' do
       users = User.paginate(per_page: 1, page: 1)
       expect(users.total_pages).to eq(10)
@@ -133,6 +150,16 @@ describe SmartPaginate::ActiveRecordExtension do
     it 'returns the total number of pages when per_page is more than number of records' do
       users = User.paginate(per_page: 11, page: 1)
       expect(users.total_pages).to eq(1)
+    end
+
+    it 'returns the total number of pages after the last page' do
+      users = User.paginate(per_page: 1, page: 11)
+      expect(users.total_pages).to eq(10)
+    end
+
+    it 'returns the total number of pages far after the last page' do
+      users = User.paginate(per_page: 1, page: 20)
+      expect(users.total_pages).to eq(10)
     end
   end
 

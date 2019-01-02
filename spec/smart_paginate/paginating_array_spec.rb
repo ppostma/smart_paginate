@@ -74,6 +74,11 @@ describe SmartPaginate::PaginatingArray do
     end
 
     it 'returns the total number of entries after the last page' do
+      users = subject.paginate(per_page: 1, page: 11)
+      expect(users.total_entries).to eq(10)
+    end
+
+    it 'returns the total number of entries far after the last page' do
       users = subject.paginate(per_page: 1, page: 20)
       expect(users.total_entries).to eq(10)
     end
@@ -98,6 +103,16 @@ describe SmartPaginate::PaginatingArray do
     it 'returns the total number of pages when per_page is more than number of records' do
       users = subject.paginate(per_page: 11, page: 1)
       expect(users.total_pages).to eq(1)
+    end
+
+    it 'returns the total number of pages after the last page' do
+      users = subject.paginate(per_page: 1, page: 11)
+      expect(users.total_pages).to eq(10)
+    end
+
+    it 'returns the total number of pages far after the last page' do
+      users = subject.paginate(per_page: 1, page: 20)
+      expect(users.total_pages).to eq(10)
     end
   end
 

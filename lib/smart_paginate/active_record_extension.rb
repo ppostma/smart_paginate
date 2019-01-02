@@ -74,7 +74,7 @@ module SmartPaginate
           load # make sure we have determined the number of fetched records
 
           # if we know that there are no more records, then we can calculate total_entries
-          if @number_of_records <= per_page
+          if (current_page == 1 || @number_of_records > 0) && @number_of_records <= per_page
             offset_value + @number_of_records
           else
             rel = except(:limit, :offset)
