@@ -66,13 +66,23 @@ describe SmartPaginate::ActiveRecordExtension do
       expect(users.empty?).to be false
     end
 
-    it 'returns true when no results are present' do
+    it 'returns true when after the last page' do
       users = User.paginate(per_page: 1, page: 11)
+      expect(users.empty?).to be true
+    end
+
+    it 'returns true when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
       expect(users.empty?).to be true
     end
   end
 
   describe '#count' do
+    it 'returns zero when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
+      expect(users.count).to eq(0)
+    end
+
     it 'returns the number of entries when per_page is 1 on the first page' do
       users = User.paginate(per_page: 1, page: 1)
       expect(users.count).to eq(1)
@@ -127,9 +137,9 @@ describe SmartPaginate::ActiveRecordExtension do
   end
 
   describe '#total_pages' do
-    it 'returns zero when there are no records' do
+    it 'returns one when there are no records' do
       users = User.nothing.paginate(per_page: 1, page: 1)
-      expect(users.total_pages).to eq(0)
+      expect(users.total_pages).to eq(1)
     end
 
     it 'returns the total number of pages when per_page is 1' do
@@ -178,6 +188,11 @@ describe SmartPaginate::ActiveRecordExtension do
       users = User.paginate(per_page: 1, page: 1)
       expect(users.previous_page).to be nil
     end
+
+    it 'returns nil when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
+      expect(users.previous_page).to be nil
+    end
   end
 
   describe '#next_page' do
@@ -193,6 +208,11 @@ describe SmartPaginate::ActiveRecordExtension do
 
     it 'returns nil when no pages are present' do
       users = User.paginate(per_page: 1, page: 10)
+      expect(users.next_page).to be nil
+    end
+
+    it 'returns nil when there are no records' do
+      users = User.nothing.paginate(per_page: 1, page: 1)
       expect(users.next_page).to be nil
     end
   end
