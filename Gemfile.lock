@@ -63,6 +63,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord (~> 6.1.0)
   bundler (>= 1.12)
   rake (~> 13.0)
   rspec (~> 3.4.0, >= 3.4.0)
@@ -71,4 +72,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

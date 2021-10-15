@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: [2.3, 2.4, 2.5, 2.6, 2.7]
+        gemfile:
+          - gemfiles/Gemfile.active_record-4.0
+          - gemfiles/Gemfile.active_record-4.1
+          - gemfiles/Gemfile.active_record-4.2
+          - gemfiles/Gemfile.active_record-5.0
+          - gemfiles/Gemfile.active_record-5.1
+          - gemfiles/Gemfile.active_record-5.2
+          - gemfiles/Gemfile.active_record-6.0
+          - gemfiles/Gemfile.active_record-6.1
+          - gemfiles/Gemfile.active_record-edge
+        exclude:
+          - ruby-version: 2.4
+            gemfile: gemfiles/Gemfile.active_record-4.0
+          - ruby-version: 2.5
+            gemfile: gemfiles/Gemfile.active_record-4.0
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-4.0
+          - ruby-version: 2.7
+            gemfile: gemfiles/Gemfile.active_record-4.0
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-4.0
+          - ruby-version: 2.4
+            gemfile: gemfiles/Gemfile.active_record-4.1
+          - ruby-version: 2.5
+            gemfile: gemfiles/Gemfile.active_record-4.1
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-4.1
+          - ruby-version: 2.7
+            gemfile: gemfiles/Gemfile.active_record-4.1
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-4.1
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-4.2
+          - ruby-version: 2.7
+            gemfile: gemfiles/Gemfile.active_record-4.2
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-4.2
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-5.0
+          - ruby-version: 2.7
+            gemfile: gemfiles/Gemfile.active_record-5.0
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-5.0
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-5.1
+          - ruby-version: 2.7
+            gemfile: gemfiles/Gemfile.active_record-5.1
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-5.1
+          - ruby-version: 3.0
+            gemfile: gemfiles/Gemfile.active_record-5.2
+          - ruby-version: 2.3
+            gemfile: gemfiles/Gemfile.active_record-6.0
+          - ruby-version: 2.4
+            gemfile: gemfiles/Gemfile.active_record-6.0
+          - ruby-version: 2.3
+            gemfile: gemfiles/Gemfile.active_record-6.1
+          - ruby-version: 2.4
+            gemfile: gemfiles/Gemfile.active_record-6.1
+          - ruby-version: 2.3
+            gemfile: gemfiles/Gemfile.active_record-edge
+          - ruby-version: 2.4
+            gemfile: gemfiles/Gemfile.active_record-edge
+          - ruby-version: 2.5
+            gemfile: gemfiles/Gemfile.active_record-edge
+          - ruby-version: 2.6
+            gemfile: gemfiles/Gemfile.active_record-edge
+    env:
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+    - name: Run tests
+      run: bundle exec rake

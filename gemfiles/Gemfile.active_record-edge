@@ -5,5 +5,3 @@ gemspec path: '..'
 
 gem 'activerecord', git: 'https://github.com/rails/rails.git'
 gem 'sqlite3', '~> 1.4.2'
-
-gem 'rubocop', '~> 0.62.0', group: :test
