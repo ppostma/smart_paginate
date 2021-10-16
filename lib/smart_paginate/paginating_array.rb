@@ -10,7 +10,7 @@ module SmartPaginate
       page = SmartPaginate::Paginate.new(options.fetch(:page), options[:per_page])
 
       if page.offset <= length
-        array = self.slice(page.offset, page.per_page)
+        array = PaginatingArray.new(self.slice(page.offset, page.per_page))
       else
         # out of bounds, just create an empty array
         array = PaginatingArray.new
