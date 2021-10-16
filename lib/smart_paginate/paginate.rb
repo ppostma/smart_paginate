@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SmartPaginate
   class Paginate
     attr_reader :current_page, :per_page
