@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - 'gemfiles/vendor/**/*'
     - 'lib/smart_paginate/version.rb'
+    - 'vendor/**/*'
 
 Metrics/BlockLength:
   Exclude:
