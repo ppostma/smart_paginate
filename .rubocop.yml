@@ -7,12 +7,12 @@ AllCops:
     - 'lib/smart_paginate/version.rb'
     - 'vendor/**/*'
 
+Layout/LineLength:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
-
-Metrics/LineLength:
-  Enabled: false
 
 Style/BlockComments:
   Exclude:
