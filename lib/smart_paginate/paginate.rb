@@ -17,7 +17,7 @@ module SmartPaginate
 
     def convert(value, default_value)
       value = value.to_i
-      value > 0 ? value : default_value
+      value.positive? ? value : default_value
     end
   end
 end

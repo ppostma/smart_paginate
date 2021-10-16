@@ -39,7 +39,7 @@ module SmartPaginate
     end
 
     def total_pages
-      total_entries > 0 ? (total_entries / per_page.to_f).ceil : 1
+      total_entries.positive? ? (total_entries / per_page.to_f).ceil : 1
     end
   end
 end
