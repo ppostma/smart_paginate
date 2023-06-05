@@ -41,6 +41,3 @@ Style/Documentation:
 
 Style/RedundantSelf:
   Enabled: false
-
-Style/SymbolArray:
-  Enabled: false
