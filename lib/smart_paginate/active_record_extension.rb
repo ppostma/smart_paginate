@@ -91,9 +91,7 @@ module SmartPaginate
       def slice_records!
         @number_of_records ||= @records.length
 
-        if @number_of_records > per_page
-          @records = @records.slice(0, per_page)
-        end
+        @records = @records.slice(0, per_page) if @number_of_records > per_page
       end
     end
   end
