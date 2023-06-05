@@ -3,12 +3,6 @@
 require 'spec_helper'
 
 describe SmartPaginate::ActiveRecordExtension do
-  class User < ActiveRecord::Base
-    include SmartPaginate
-
-    scope :nothing, -> { where("1 = 0") }
-  end
-
   before(:all) do
     ActiveRecord::Base.connection_pool.with_connection do |conn|
       conn.create_table :users do |t|
@@ -218,4 +212,10 @@ describe SmartPaginate::ActiveRecordExtension do
       expect(users.next_page).to be nil
     end
   end
+end
+
+class User < ActiveRecord::Base
+  include SmartPaginate
+
+  scope :nothing, -> { where("1 = 0") }
 end
