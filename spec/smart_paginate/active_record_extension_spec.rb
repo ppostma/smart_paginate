@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SmartPaginate::ActiveRecordExtension do
+RSpec.describe SmartPaginate::ActiveRecordExtension do
   before(:all) do
     ActiveRecord::Base.connection_pool.with_connection do |conn|
       conn.create_table :users do |t|

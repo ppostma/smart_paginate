@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SmartPaginate::Paginate do
+RSpec.describe SmartPaginate::Paginate do
   describe '#current_page' do
     it 'accepts nil as current_page and converts it to 1' do
       page = described_class.new(nil, 10)

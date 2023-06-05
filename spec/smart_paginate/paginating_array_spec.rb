@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SmartPaginate::PaginatingArray do
+RSpec.describe SmartPaginate::PaginatingArray do
   subject(:array) { described_class.new(%w[1 2 3 4 5 6 7 8 9 10]) }
 
   describe '#paginate' do
