@@ -23,6 +23,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
 
+Metrics/MethodLength:
+  Max: 11
+
 RSpec/BeforeAfterAll:
   Enabled: false
 
@@ -32,9 +35,6 @@ RSpec/MultipleExpectations:
 Style/BlockComments:
   Exclude:
     - 'spec/**/*.rb'
-
-Style/ConditionalAssignment:
-  Enabled: false
 
 Style/Documentation:
   Enabled: false
