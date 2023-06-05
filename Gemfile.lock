@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     smart_paginate (0.2.3)
-      activerecord (>= 4.0.0)
+      activerecord (>= 4.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -70,4 +70,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   2.2.22
+   2.2.33
