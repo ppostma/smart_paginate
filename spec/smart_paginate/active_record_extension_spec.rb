@@ -34,19 +34,19 @@ describe SmartPaginate::ActiveRecordExtension do
     it 'returns the first page when asked for' do
       users = User.order(:name).paginate(per_page: 1, page: 1)
       expect(users.length).to eq(1)
-      expect(users.first.name).to eq("test_0")
+      expect(users.first.name).to eq('test_0')
     end
 
     it 'returns the second page when asked for' do
       users = User.order(:name).paginate(per_page: 1, page: 2)
       expect(users.length).to eq(1)
-      expect(users.first.name).to eq("test_1")
+      expect(users.first.name).to eq('test_1')
     end
 
     it 'returns the last page when asked for' do
       users = User.order(:name).paginate(per_page: 1, page: 5)
       expect(users.length).to eq(1)
-      expect(users.first.name).to eq("test_4")
+      expect(users.first.name).to eq('test_4')
     end
 
     it 'returns nil after the last page' do
@@ -217,5 +217,5 @@ end
 class User < ActiveRecord::Base
   include SmartPaginate
 
-  scope :nothing, -> { where("1 = 0") }
+  scope :nothing, -> { where('1 = 0') }
 end

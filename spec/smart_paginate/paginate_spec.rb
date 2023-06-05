@@ -15,12 +15,12 @@ describe SmartPaginate::Paginate do
     end
 
     it 'accepts a string as current_page and converts it to an integer' do
-      page = described_class.new("2", 10)
+      page = described_class.new('2', 10)
       expect(page.current_page).to eq(2)
     end
 
     it 'accepts an invalid string as current_page and converts it to 1' do
-      page = described_class.new("foobar", 10)
+      page = described_class.new('foobar', 10)
       expect(page.current_page).to eq(1)
     end
 
@@ -42,12 +42,12 @@ describe SmartPaginate::Paginate do
     end
 
     it 'accepts a string as per_page and converts it to an integer' do
-      page = described_class.new(1, "2")
+      page = described_class.new(1, '2')
       expect(page.per_page).to eq(2)
     end
 
     it 'accepts an invalid string as per_page and converts it to 20' do
-      page = described_class.new(1, "foobar")
+      page = described_class.new(1, 'foobar')
       expect(page.per_page).to eq(20)
     end
 

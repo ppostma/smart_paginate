@@ -48,8 +48,5 @@ Style/IfUnlessModifier:
 Style/RedundantSelf:
   Enabled: false
 
-Style/StringLiterals:
-  Enabled: false
-
 Style/SymbolArray:
   Enabled: false

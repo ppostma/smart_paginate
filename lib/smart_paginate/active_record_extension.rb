@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "smart_paginate/paginate"
-require "active_support/concern"
-require "active_record"
+require 'smart_paginate/paginate'
+require 'active_support/concern'
+require 'active_record'
 
 module SmartPaginate
   module ActiveRecordExtension

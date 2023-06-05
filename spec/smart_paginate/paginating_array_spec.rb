@@ -18,19 +18,19 @@ describe SmartPaginate::PaginatingArray do
     it 'returns the first page when asked for' do
       users = array.paginate(per_page: 1, page: 1)
       expect(users.length).to eq(1)
-      expect(users.first).to eq("1")
+      expect(users.first).to eq('1')
     end
 
     it 'returns the second page when asked for' do
       users = array.paginate(per_page: 1, page: 2)
       expect(users.length).to eq(1)
-      expect(users.first).to eq("2")
+      expect(users.first).to eq('2')
     end
 
     it 'returns the last page when asked for' do
       users = array.paginate(per_page: 1, page: 10)
       expect(users.length).to eq(1)
-      expect(users.first).to eq("10")
+      expect(users.first).to eq('10')
     end
 
     it 'returns nil after the last page' do
