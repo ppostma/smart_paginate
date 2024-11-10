@@ -52,7 +52,7 @@ RSpec.describe SmartPaginate::ActiveRecordExtension do
     it 'returns nil after the last page' do
       users = User.order(:name).paginate(per_page: 1, page: 11)
       expect(users.length).to eq(0)
-      expect(users.first).to be nil
+      expect(users.first).to be_nil
     end
   end
 
@@ -182,12 +182,12 @@ RSpec.describe SmartPaginate::ActiveRecordExtension do
 
     it 'returns nil when no pages are present' do
       users = User.paginate(per_page: 1, page: 1)
-      expect(users.previous_page).to be nil
+      expect(users.previous_page).to be_nil
     end
 
     it 'returns nil when there are no records' do
       users = User.nothing.paginate(per_page: 1, page: 1)
-      expect(users.previous_page).to be nil
+      expect(users.previous_page).to be_nil
     end
   end
 
@@ -204,12 +204,12 @@ RSpec.describe SmartPaginate::ActiveRecordExtension do
 
     it 'returns nil when no pages are present' do
       users = User.paginate(per_page: 1, page: 10)
-      expect(users.next_page).to be nil
+      expect(users.next_page).to be_nil
     end
 
     it 'returns nil when there are no records' do
       users = User.nothing.paginate(per_page: 1, page: 1)
-      expect(users.next_page).to be nil
+      expect(users.next_page).to be_nil
     end
   end
 end
