@@ -13,6 +13,9 @@ AllCops:
     - 'lib/smart_paginate/version.rb'
     - 'vendor/**/*'
 
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
 Layout/LineLength:
   Enabled: false
 

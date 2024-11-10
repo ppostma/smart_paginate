@@ -36,7 +36,7 @@ RSpec.describe SmartPaginate::PaginatingArray do
     it 'returns nil after the last page' do
       users = array.paginate(per_page: 1, page: 20)
       expect(users.length).to eq(0)
-      expect(users.first).to be nil
+      expect(users.first).to be_nil
     end
 
     it 'does not modify the original array when paginating' do
@@ -131,7 +131,7 @@ RSpec.describe SmartPaginate::PaginatingArray do
 
     it 'returns nil when no pages are present' do
       users = array.paginate(per_page: 1, page: 1)
-      expect(users.previous_page).to be nil
+      expect(users.previous_page).to be_nil
     end
   end
 
@@ -148,7 +148,7 @@ RSpec.describe SmartPaginate::PaginatingArray do
 
     it 'returns nil when no pages are present' do
       users = array.paginate(per_page: 1, page: 10)
-      expect(users.next_page).to be nil
+      expect(users.next_page).to be_nil
     end
   end
 end

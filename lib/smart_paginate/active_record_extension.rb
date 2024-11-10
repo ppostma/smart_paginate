@@ -30,7 +30,7 @@ module SmartPaginate
           rel = except(:limit).limit(per_page)
           rel.count(*args)
         else
-          super(*args)
+          super
         end
       end
 
