@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 gemspec path: '..'
 
 gem 'activerecord', git: 'https://github.com/rails/rails.git'
-gem 'sqlite3', '~> 1.4.2'
+gem 'sqlite3', '~> 2.2.0'
