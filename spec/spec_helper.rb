@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 
+require 'logger'
 require 'active_record'
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:', encoding: 'utf-8')
 
